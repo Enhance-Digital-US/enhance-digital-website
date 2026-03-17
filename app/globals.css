@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-cyan: #0ff;
+  --font-display: var(--font-display), monospace;
+  --font-mono: var(--font-mono), monospace;
+}
+
+* {
+  cursor: none !important;
+}
+
+.glitch-effect {
+  position: relative;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.glitch-effect::before {
+  left: 2px;
+  text-shadow: -1px 0 #0ff;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+  left: -2px;
+  text-shadow: -1px 0 #fff;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(10px, 9999px, 44px, 0); }
+  20% { clip: rect(80px, 9999px, 12px, 0); }
+  40% { clip: rect(30px, 9999px, 90px, 0); }
+  60% { clip: rect(100px, 9999px, 50px, 0); }
+  80% { clip: rect(5px, 9999px, 100px, 0); }
+  100% { clip: rect(40px, 9999px, 20px, 0); }
+}
