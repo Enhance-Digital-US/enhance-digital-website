@@ -73,7 +73,7 @@ export default function Contact() {
             {isSuccess ? (
               <TerminalOutput />
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 font-mono">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 font-mono" data-netlify="true">
                 <div className="flex items-center gap-2 mb-6 text-neon-cyan/50 border-b border-zinc-800 pb-4">
                   <Terminal className="w-4 h-4" />
                   <span className="text-xs uppercase tracking-widest">Input_Parameters</span>
