@@ -31,16 +31,21 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true);
-    await fetch('/__form.html', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString(),
-    });
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    reset();
-    setTimeout(() => setIsSuccess(false), 8000);
+    try {
+      setIsSubmitting(true);
+      await fetch('/__form.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString(),
+      });
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      reset();
+      setTimeout(() => setIsSuccess(false), 8000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -48,17 +53,17 @@ export default function Contact() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
-            <h2 
+            <h2
               className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6 text-white uppercase"
             >
               &gt; <RandomCharacterEffect text="Initiate" /> <br />
               <span className="text-neon-cyan"><RandomCharacterEffect text="Sequence." /></span>
             </h2>
-            
+
             <p className="text-base md:text-lg text-zinc-400 mb-12 max-w-md leading-relaxed font-mono">
               Ready to transform your small business with autonomous intelligence and drive more sales? Input your parameters below.
             </p>
-            
+
             <div className="space-y-6 text-white font-mono text-sm">
               <div className="border-l-2 border-neon-cyan pl-4">
                 <h4 className="text-zinc-500 uppercase tracking-widest mb-1">SYS.LOC</h4>
@@ -70,10 +75,10 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-black p-8 border border-neon-cyan/30 shadow-[0_0_30px_rgba(0,255,255,0.05)] relative">
             <div className="absolute top-0 left-0 w-full h-1 bg-zinc-900" />
-            
+
             {isSuccess ? (
               <TerminalOutput />
             ) : (
@@ -107,7 +112,7 @@ export default function Contact() {
                     {errors.email && <p className="text-red-400 text-xs">{errors.email.message}</p>}
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <label htmlFor="company" className="text-xs text-zinc-400 uppercase">Company</label>
                   <input
@@ -118,7 +123,7 @@ export default function Contact() {
                   />
                   {errors.company && <p className="text-red-400 text-xs">{errors.company.message}</p>}
                 </div>
-                
+
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-xs text-zinc-400 uppercase">Payload</label>
                   <textarea
@@ -130,7 +135,7 @@ export default function Contact() {
                   />
                   {errors.message && <p className="text-red-400 text-xs">{errors.message.message}</p>}
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
