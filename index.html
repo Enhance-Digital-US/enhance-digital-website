@@ -17,6 +17,15 @@
 
 <body class="font-mono bg-[#050505] text-zinc-100 antialiased selection:bg-[#0ff] selection:text-black cursor-none">
   <div id="root"></div>
+
+  <!-- A little help for the Netlify post-processing bots -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="company" />
+    <textarea name="message"></textarea>
+  </form>
+
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
