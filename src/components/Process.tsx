@@ -1,4 +1,3 @@
-'use client';
 
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Settings, Search, Layers, Rocket } from 'lucide-react';

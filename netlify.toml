@@ -1,12 +1,6 @@
 [build]
-  # For Next.js 13+ (App Router) or legacy 'next export'
-  command = "npm run build"
-  publish = "out"
-
-[build.environment]
-  # Prevents Netlify from trying to use its automatic Next.js Runtime plugin,
-  # which is typically intended for SSR/ISR rather than pure static exports.
-  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  command = "pnpm run build"
+  publish = "dist"
 
 [[redirects]]
   from = "/*"

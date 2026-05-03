@@ -1,4 +1,3 @@
-'use client';
 
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
@@ -20,10 +19,10 @@ export default function Hero() {
     <section ref={containerRef} className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#050505]">
       {/* Pixel Blast Background */}
       <div className="absolute inset-0 z-0 opacity-60">
-        <PixelBlast 
-          variant="square" 
-          color="#00ffff" 
-          pixelSize={4} 
+        <PixelBlast
+          variant="square"
+          color="#00ffff"
+          pixelSize={4}
           patternScale={2}
           patternDensity={1}
           liquid={false}
@@ -36,18 +35,19 @@ export default function Hero() {
           edgeFade={0.5}
         />
       </div>
-      
-      <motion.div 
+
+      <motion.div
         style={{ y, opacity }}
         className="container mx-auto px-6 md:px-12 relative z-20 flex flex-col items-center text-center mt-12"
       >
-        <h1 
+        <h1
           className="text-5xl md:text-7xl lg:text-8xl font-sans font-bold tracking-tight mb-8 text-white uppercase"
         >
           <span className="text-zinc-100 drop-shadow-sm">ENHANCE</span>
           <br />
-          <RotatingText 
-            words={["YOUR IDEAS", "YOUR WORKFLOW", "YOUR BUSINESS"]} 
+          <RotatingText
+            words={["YOUR IDEAS", "YOUR WORKFLOW", "YOUR BUSINESS"]}
+            widestWord="YOUR WORKFLOW"
             interval={2500}
             className="bg-black text-neon-cyan px-6 py-2 mt-4 border border-neon-cyan/30 rounded-lg shadow-[0_0_30px_rgba(0,255,255,0.15)]"
           />

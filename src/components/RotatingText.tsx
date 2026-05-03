@@ -5,9 +5,10 @@ interface RotatingTextProps {
   words: string[];
   interval?: number;
   className?: string;
+  widestWord: string;
 }
 
-export default function RotatingText({ words, interval = 3000, className = '' }: RotatingTextProps) {
+export default function RotatingText({ words, widestWord, interval = 3000, className = '' }: RotatingTextProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -17,11 +18,9 @@ export default function RotatingText({ words, interval = 3000, className = '' }:
     return () => clearInterval(timer);
   }, [words, interval]);
 
-  const longestWord = words.reduce((a, b) => a.length > b.length ? a : b, "");
-
   return (
     <div className={`inline-flex flex-col overflow-hidden relative whitespace-nowrap ${className}`}>
-      <span className="invisible px-1 whitespace-nowrap" aria-hidden="true">{longestWord}</span>
+      <span className="invisible px-1 whitespace-nowrap" aria-hidden="true">{widestWord}</span>
       <AnimatePresence mode="wait">
         <motion.span
           key={index}

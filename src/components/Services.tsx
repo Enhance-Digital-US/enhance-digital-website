@@ -1,4 +1,3 @@
-'use client';
 
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Brain, Cpu, Network, Zap, Lock, BarChart } from 'lucide-react';

@@ -1,4 +1,3 @@
-'use client';
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -33,7 +32,7 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     try {
       setIsSubmitting(true);
-      await fetch('/__form.html', {
+      await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(data).toString(),
@@ -82,7 +81,7 @@ export default function Contact() {
             {isSuccess ? (
               <TerminalOutput />
             ) : (
-              <form name="contact" onSubmit={handleSubmit(onSubmit)} className="space-y-6 font-mono">
+              <form name="contact" onSubmit={handleSubmit(onSubmit)} className="space-y-6 font-mono" data-netlify="true">
                 <input type="hidden" name="form-name" value="contact" />
                 <div className="flex items-center gap-2 mb-6 text-neon-cyan/50 border-b border-zinc-800 pb-4">
                   <Terminal className="w-4 h-4" />

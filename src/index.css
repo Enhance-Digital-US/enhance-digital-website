@@ -1,9 +1,11 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap');
 
 @theme {
   --color-neon-cyan: #0ff;
-  --font-display: var(--font-display), monospace;
-  --font-mono: var(--font-mono), monospace;
+  --font-display: 'Share Tech Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Space Grotesk', sans-serif;
 }
 
 * {
