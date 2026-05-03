@@ -46,14 +46,14 @@ export default function Hero() {
           <span className="text-zinc-100 drop-shadow-sm">ENHANCE</span>
           <br />
           <RotatingText
-            words={["YOUR IDEAS", "YOUR WORKFLOW", "YOUR BUSINESS"]}
-            widestWord="YOUR WORKFLOW"
+            words={["YOUR BRAND", "YOUR WORKFLOWS", "YOUR BUSINESS"]}
+            widestWord="YOUR WORKFLOWS"
             interval={2500}
             className="bg-black text-neon-cyan px-6 py-2 mt-4 border border-neon-cyan/30 rounded-lg shadow-[0_0_30px_rgba(0,255,255,0.15)]"
           />
         </h1>
         <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-mono">
-          AI-first digital agency helping small businesses automate tasks and get more sales.
+          We help small businesses get found, generate leads, and save time with AI-powered digital marketing.
         </p>
       </motion.div>
     </section>

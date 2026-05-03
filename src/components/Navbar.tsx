@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-  { name: 'SYS.SERVICES', href: '#services' },
-  { name: 'SYS.PROCESS', href: '#process' },
-  { name: 'SYS.LOGS', href: '#testimonials' },
+  { name: 'SERVICES', href: '#services' },
+  { name: 'PROCESS', href: '#process' },
+  { name: 'TESTIMONIALS', href: '#testimonials' },
 ];
 
 export default function Navbar() {
@@ -23,11 +23,10 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${
-        isScrolled 
-        ? 'bg-[#050505]/90 backdrop-blur-md border-neon-cyan/30 shadow-[0_0_15px_rgba(0,255,255,0.1)]' 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${isScrolled
+        ? 'bg-[#050505]/90 backdrop-blur-md border-neon-cyan/30 shadow-[0_0_15px_rgba(0,255,255,0.1)]'
         : 'bg-transparent border-transparent'
-      }`}
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -35,9 +34,9 @@ export default function Navbar() {
       <div className="container mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 z-50 relative group">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neon-cyan group-hover:animate-pulse">
-            <path d="M16 2L2 9L16 16L30 9L16 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2 23L16 30L30 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2 16L16 23L30 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M16 2L2 9L16 16L30 9L16 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M2 23L16 30L30 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M2 16L16 23L30 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span className="font-display font-bold text-xl tracking-widest text-neon-cyan">
             ENHANCE<span className="animate-pulse">_</span>
@@ -64,7 +63,7 @@ export default function Navbar() {
               href="#contact"
               className="bg-transparent border border-neon-cyan text-neon-cyan px-4 py-2 lg:px-6 text-xs lg:text-sm font-mono uppercase tracking-widest hover:bg-neon-cyan/10 transition-all shadow-[0_0_10px_rgba(0,255,255,0)] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)]"
             >
-              [ EXECUTE ]
+              [ CONTACT ]
             </a>
           </div>
         </div>

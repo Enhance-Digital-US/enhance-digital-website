@@ -9,32 +9,32 @@ const services = [
   {
     icon: <Brain className="w-6 h-6" />,
     title: 'SYS.MARKETING',
-    description: 'AI-driven marketing campaigns that target the right audience and optimize ad spend automatically.'
+    description: 'AI-powered marketing strategies that help small businesses identify customers, create campaigns, optimize channels, and improve visibility with data-backed recommendations.'
   },
   {
     icon: <Network className="w-6 h-6" />,
     title: 'SYS.AUTOMATION',
-    description: 'Intelligent workflows that handle repetitive tasks, freeing up your time to focus on growth.'
+    description: 'Generative AI workflows that reduce manual tasks, automate follow-ups, summarize inquiries, trigger reminders, and improve daily business operations.'
   },
   {
     icon: <Cpu className="w-6 h-6" />,
     title: 'SYS.CREATIVE',
-    description: 'Generative AI solutions for rapid content creation, from ad copy to visual assets.'
+    description: 'AI-assisted content creation for ads, social posts, emails, videos, landing pages, and brand messaging that keeps your business consistent and professional.'
   },
   {
     icon: <BarChart className="w-6 h-6" />,
     title: 'SYS.SALES',
-    description: 'Predictive analytics and lead scoring to help you close more deals with less effort.'
+    description: 'AI-enhanced sales support that helps qualify leads, personalize outreach, create follow-up sequences, and turn more prospects into customers.'
   },
   {
     icon: <Zap className="w-6 h-6" />,
     title: 'SYS.CHATBOTS',
-    description: 'Custom AI agents that handle customer support and lead qualification 24/7.'
+    description: 'AI chatbots that answer questions, capture leads, recommend services, book appointments, and support customers instantly on your website.'
   },
   {
     icon: <Lock className="w-6 h-6" />,
     title: 'SYS.CRM',
-    description: 'Smart CRM integrations that keep your customer data organized and actionable.'
+    description: 'Smarter CRM setup with AI-generated customer segments, follow-up prompts, lead scoring, activity summaries, and automated customer communication.'
   }
 ];
 
@@ -50,24 +50,24 @@ export default function Services() {
   return (
     <section id="services" ref={containerRef} className="py-32 bg-[#0a0a0a] relative border-t border-zinc-900 overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <Squares 
+        <Squares
           direction="diagonal"
           speed={0.5}
           squareSize={40}
-          borderColor="#333" 
+          borderColor="#333"
           hoverFillColor="#222"
         />
       </div>
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="mb-20 md:flex justify-between items-end">
           <div className="max-w-2xl">
-            <h2 
+            <h2
               className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6 text-white uppercase"
             >
               &gt; <RandomCharacterEffect text="Capabilities" />
             </h2>
             <p className="text-zinc-400 text-base md:text-lg font-mono">
-              We don&apos;t just implement tools; we architect growth. Our services are designed to fundamentally upgrade how your small business operates and sells.
+              We help small businesses attract more customers, save time, and grow with practical digital marketing, automation, CRM, creative content, sales support, and AI chatbots.
             </p>
           </div>
         </div>
@@ -84,10 +84,10 @@ export default function Services() {
               whileHover="hover"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-zinc-900 group-hover:bg-neon-cyan transition-colors" />
-              <motion.div 
+              <motion.div
                 className="w-12 h-12 border border-zinc-800 flex items-center justify-center mb-6 text-neon-cyan bg-zinc-900/50 transition-all duration-300"
                 variants={{
-                  hover: { 
+                  hover: {
                     borderColor: '#00ffff',
                     boxShadow: '0 0 15px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.2)'
                   }
