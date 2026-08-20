@@ -39,7 +39,10 @@ export default function Navbar() {
             <path d="M2 16L16 23L30 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span className="font-display font-bold text-xl tracking-widest text-neon-cyan">
-            ENHANCE<span className="animate-pulse">_</span>
+            ENHANCE<span className="animate-pulse">_</span>DIGITAL
+          </span>
+          <span className="font-display font-bold text-sm tracking-widest text-zinc-600 hidden xl:inline-block">
+            // AI AUTOMATION & MARKETING AGENCY
           </span>
         </a>
 

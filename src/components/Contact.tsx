@@ -76,8 +76,10 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-black p-8 border border-neon-cyan/30 shadow-[0_0_30px_rgba(0,255,255,0.05)] relative">
-            <div className="absolute top-0 left-0 w-full h-1 bg-zinc-900" />
+          <div className="relative p-[1px] shadow-[0_0_30px_rgba(0,255,255,0.05)] overflow-hidden">
+            <span className="absolute inset-[-1000%] animate-[spin_9s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#00ffff_50%,transparent_100%)]"></span>
+            <div className="bg-black p-8 relative z-10 w-full h-full">
+              <div className="absolute top-0 left-0 w-full h-1 bg-zinc-900" />
 
             {isSuccess ? (
               <TerminalOutput />
@@ -147,6 +149,7 @@ export default function Contact() {
                 </button>
               </form>
             )}
+            </div>
           </div>
         </div>
       </div>

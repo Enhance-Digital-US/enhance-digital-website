@@ -38,7 +38,7 @@ export default function Hero() {
 
       <motion.div
         style={{ y, opacity }}
-        className="container mx-auto px-6 md:px-12 relative z-20 flex flex-col items-center text-center mt-12"
+        className="container mx-auto px-6 md:px-12 relative z-20 flex flex-col items-center text-center mt-12 pointer-events-none"
       >
         <h1
           className="text-5xl md:text-7xl lg:text-8xl font-sans font-bold tracking-tight mb-8 text-white uppercase"
@@ -49,10 +49,10 @@ export default function Hero() {
             words={["YOUR BRAND", "YOUR WORKFLOWS", "YOUR BUSINESS"]}
             widestWord="YOUR WORKFLOWS"
             interval={2500}
-            className="bg-black text-neon-cyan px-6 py-2 mt-4 border border-neon-cyan/30 rounded-lg shadow-[0_0_30px_rgba(0,255,255,0.15)]"
+            className="text-neon-cyan mt-4 shadow-[0_0_30px_rgba(0,255,255,0.15)]"
           />
         </h1>
-        <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-mono">
+        <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-mono bg-black/40 backdrop-blur-sm p-4 rounded-xl border border-white/5">
           We help small businesses get found, generate leads, and save time with AI-powered digital marketing.
         </p>
       </motion.div>

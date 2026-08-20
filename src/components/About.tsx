@@ -27,8 +27,10 @@ export default function About() {
       </div>
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch relative">
-          <div className="relative w-full border border-neon-cyan/30 bg-black p-1 shadow-[0_0_30px_rgba(0,255,255,0.05)] flex flex-col h-full">
-            <div className="bg-zinc-900 px-4 py-3 flex items-center justify-between border-b border-neon-cyan/30">
+          <div className="relative w-full p-[1px] shadow-[0_0_30px_rgba(0,255,255,0.05)] flex flex-col h-full overflow-hidden">
+            <span className="absolute inset-[-1000%] animate-[spin_9s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#00ffff_50%,transparent_100%)]"></span>
+            <div className="relative flex flex-col h-full w-full bg-black p-1 z-10">
+              <div className="bg-zinc-900 px-4 py-3 flex items-center justify-between border-b border-neon-cyan/30">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center">
                   <Bot className="w-4 h-4 text-neon-cyan" />
@@ -151,6 +153,7 @@ export default function About() {
                   <Send className="w-4 h-4 text-neon-cyan" />
                 </div>
               </div>
+            </div>
             </div>
           </div>
 
