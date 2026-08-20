@@ -61,17 +61,17 @@ export default function Contact() {
             </h2>
 
             <p className="text-base md:text-lg text-zinc-400 mb-12 max-w-md leading-relaxed font-mono">
-              Ready to transform your small business with autonomous intelligence and drive more sales? Input your parameters below.
+              Ready to transform your small business with autonomous intelligence and drive more sales? Send us a note.
             </p>
 
             <div className="space-y-6 text-white font-mono text-sm">
               <div className="border-l-2 border-neon-cyan pl-4">
                 <h4 className="text-zinc-500 uppercase tracking-widest mb-1">SYS.LOC</h4>
-                <p>San Francisco, CA // Global Operations</p>
+                <p>New Jersey, US (EST) // Global Operations</p>
               </div>
               <div className="border-l-2 border-neon-cyan pl-4">
                 <h4 className="text-zinc-500 uppercase tracking-widest mb-1">SYS.COM</h4>
-                <p className="hover:text-neon-cyan transition-colors cursor-pointer">hello@enhancedigital.agency</p>
+                <p className="hover:text-neon-cyan transition-colors cursor-pointer">info@enhancedigital.us</p>
               </div>
             </div>
           </div>
@@ -81,74 +81,74 @@ export default function Contact() {
             <div className="bg-black p-8 relative z-10 w-full h-full">
               <div className="absolute top-0 left-0 w-full h-1 bg-zinc-900" />
 
-            {isSuccess ? (
-              <TerminalOutput />
-            ) : (
-              // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
-              <form name="contact" onSubmit={handleSubmit(onSubmit)} className="space-y-6 font-mono">
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div className="flex items-center gap-2 mb-6 text-neon-cyan/50 border-b border-zinc-800 pb-4">
-                  <Terminal className="w-4 h-4" />
-                  <span className="text-xs uppercase tracking-widest">Input_Parameters</span>
-                </div>
+              {isSuccess ? (
+                <TerminalOutput />
+              ) : (
+                // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+                <form name="contact" onSubmit={handleSubmit(onSubmit)} className="space-y-6 font-mono">
+                  {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <div className="flex items-center gap-2 mb-6 text-neon-cyan/50 border-b border-zinc-800 pb-4">
+                    <Terminal className="w-4 h-4" />
+                    <span className="text-xs uppercase tracking-widest">Input_Parameters</span>
+                  </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-xs text-zinc-400 uppercase">Name</label>
+                      <input
+                        {...register('name')}
+                        id="name"
+                        className="w-full bg-[#050505] border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-cyan transition-colors"
+                        placeholder=">_"
+                      />
+                      {errors.name && <p className="text-red-400 text-xs">{errors.name.message}</p>}
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-xs text-zinc-400 uppercase">Email</label>
+                      <input
+                        {...register('email')}
+                        id="email"
+                        type="email"
+                        className="w-full bg-[#050505] border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-cyan transition-colors"
+                        placeholder=">_"
+                      />
+                      {errors.email && <p className="text-red-400 text-xs">{errors.email.message}</p>}
+                    </div>
+                  </div>
+
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-xs text-zinc-400 uppercase">Name</label>
+                    <label htmlFor="company" className="text-xs text-zinc-400 uppercase">Company</label>
                     <input
-                      {...register('name')}
-                      id="name"
+                      {...register('company')}
+                      id="company"
                       className="w-full bg-[#050505] border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-cyan transition-colors"
                       placeholder=">_"
                     />
-                    {errors.name && <p className="text-red-400 text-xs">{errors.name.message}</p>}
+                    {errors.company && <p className="text-red-400 text-xs">{errors.company.message}</p>}
                   </div>
+
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-xs text-zinc-400 uppercase">Email</label>
-                    <input
-                      {...register('email')}
-                      id="email"
-                      type="email"
-                      className="w-full bg-[#050505] border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-cyan transition-colors"
-                      placeholder=">_"
+                    <label htmlFor="message" className="text-xs text-zinc-400 uppercase">Message</label>
+                    <textarea
+                      {...register('message')}
+                      id="message"
+                      rows={4}
+                      className="w-full bg-[#050505] border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-cyan transition-colors resize-none"
+                      placeholder="> Describe objectives..."
                     />
-                    {errors.email && <p className="text-red-400 text-xs">{errors.email.message}</p>}
+                    {errors.message && <p className="text-red-400 text-xs">{errors.message.message}</p>}
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="company" className="text-xs text-zinc-400 uppercase">Company</label>
-                  <input
-                    {...register('company')}
-                    id="company"
-                    className="w-full bg-[#050505] border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-cyan transition-colors"
-                    placeholder=">_"
-                  />
-                  {errors.company && <p className="text-red-400 text-xs">{errors.company.message}</p>}
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-xs text-zinc-400 uppercase">Payload</label>
-                  <textarea
-                    {...register('message')}
-                    id="message"
-                    rows={4}
-                    className="w-full bg-[#050505] border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-neon-cyan transition-colors resize-none"
-                    placeholder="> Describe objectives..."
-                  />
-                  {errors.message && <p className="text-red-400 text-xs">{errors.message.message}</p>}
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-neon-cyan/10 border border-neon-cyan text-neon-cyan font-mono uppercase tracking-widest py-4 flex items-center justify-center gap-2 hover:bg-neon-cyan/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? '[ PROCESSING... ]' : '[ TRANSMIT ]'}
-                </button>
-              </form>
-            )}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-neon-cyan/10 border border-neon-cyan text-neon-cyan font-mono uppercase tracking-widest py-4 flex items-center justify-center gap-2 hover:bg-neon-cyan/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? '[ PROCESSING... ]' : '[ TRANSMIT ]'}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
