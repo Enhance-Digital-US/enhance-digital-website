@@ -64,7 +64,7 @@ export default function Services() {
             <h2
               className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6 text-white uppercase"
             >
-              &gt; <RandomCharacterEffect text="Capabilities" />
+              &gt; <RandomCharacterEffect text="Services_Capabilities" />
             </h2>
             <p className="text-zinc-400 text-base md:text-lg font-mono">
               We help small businesses attract more customers, save time, and grow with practical digital marketing, automation, CRM, creative content, sales support, and AI chatbots.
