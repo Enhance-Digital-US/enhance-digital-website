@@ -8,7 +8,6 @@ import RandomCharacterEffect from './RandomCharacterEffect';
 import TerminalOutput from './TerminalOutput';
 
 const formSchema = z.object({
-  'form-name': z.string().default('contact'),
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Invalid email address'),
   company: z.string().min(2, 'Company name is required'),
@@ -36,7 +35,7 @@ export default function Contact() {
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString(),
+        body: new URLSearchParams({ ...data, 'static-form-name': 'contact' }).toString(),
       });
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -84,10 +83,10 @@ export default function Contact() {
               {isSuccess ? (
                 <TerminalOutput />
               ) : (
-                // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+                // Cloudflare Pages Static Forms Plugin handles interception
                 <form name="contact" onSubmit={handleSubmit(onSubmit)} className="space-y-6 font-mono">
-                  {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                  <input type="hidden" name="form-name" value="contact" />
+                  {/* The `static-form-name` field is required by the Cloudflare Pages Static Forms Plugin */}
+                  <input type="hidden" name="static-form-name" value="contact" />
                   <div className="flex items-center gap-2 mb-6 text-neon-cyan/50 border-b border-zinc-800 pb-4">
                     <Terminal className="w-4 h-4" />
                     <span className="text-xs uppercase tracking-widest">Input_Parameters</span>
