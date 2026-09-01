@@ -2,16 +2,15 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "enhance-digital-website",
   "compatibility_date": "2024-03-20",
-  "pages_build_output_dir": "dist",
-  "observability": {
-    "enabled": true
+  "main": "src/worker.ts",
+  "assets": {
+    "directory": "dist",
+    "binding": "ASSETS"
   },
   "kv_namespaces": [
     {
-      "binding": "KV",
-      "id": "be9a624331524aa3935e56ad2b6d0d7b",
-      // Optional: preview_id used when running `wrangler dev` for local dev
-      "preview_id": "ENHANCE_DIGITAL_CONTACT_FORM"
+      "binding": "ENHANCE_DIGITAL_CONTACT_FORM",
+      "id": "be9a624331524aa3935e56ad2b6d0d7b"
     }
   ]
 }
