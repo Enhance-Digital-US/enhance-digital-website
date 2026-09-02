@@ -3,6 +3,12 @@
   "name": "enhance-digital-website",
   "compatibility_date": "2024-03-20",
   "main": "src/worker.ts",
+  "observability": {
+    "logs": {
+      "enabled": false,
+      "invocation_logs": true
+    }
+  },
   "assets": {
     "directory": "dist",
     "binding": "ASSETS"
