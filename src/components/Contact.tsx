@@ -32,7 +32,7 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     try {
       setIsSubmitting(true);
-      await fetch('/', {
+      await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ ...data, 'static-form-name': 'contact' }).toString(),

@@ -5,42 +5,46 @@ export interface Env {
   ASSETS: Fetcher;
 }
 
+const CONTACT_ENDPOINT = "/api/contact";
+
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
-    
-    // Only intercept POST requests to / for the static form plugin
-    if (request.method === "POST" && url.pathname === "/") {
-      const pagesFunction = staticFormsPlugin({
-        respondWith: async ({ formData, name }) => {
-          const kv = env.ENHANCE_DIGITAL_CONTACT_FORM;
-          const data = Object.fromEntries(formData);
-          
-          const key = `${name}:${Date.now()}`;
-          await kv.put(key, JSON.stringify(data));
-          
-          return new Response(JSON.stringify({ success: true, message: `Saved submission for ${name}` }), {
-            status: 200,
-            headers: { "Content-Type": "application/json" }
+
+    // Route POST /api/contact to the static forms plugin → KV storage
+    if (request.method === "POST" && url.pathname === CONTACT_ENDPOINT) {
+      try {
+        const formData = await request.formData();
+        const name = formData.get("static-form-name")?.toString();
+
+        if (!name) {
+          return new Response(JSON.stringify({ error: "Missing static-form-name field" }), {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
           });
-        },
-      });
+        }
 
-      const context = {
-        request,
-        env,
-        waitUntil: ctx.waitUntil.bind(ctx),
-        passThroughOnException: ctx.passThroughOnException.bind(ctx),
-        next: async () => env.ASSETS.fetch(request),
-        data: {},
-        params: {},
-        functionPath: "/",
-      } as any; // Cast as any to bypass strict internal Pages context types
+        // Remove the routing field before storing
+        formData.delete("static-form-name");
 
-      return pagesFunction(context);
+        const data = Object.fromEntries(formData);
+        const key = `${name}:${Date.now()}`;
+        await env.ENHANCE_DIGITAL_CONTACT_FORM.put(key, JSON.stringify(data));
+
+        return new Response(JSON.stringify({ success: true }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        });
+      } catch (err) {
+        console.error("Contact form error:", err);
+        return new Response(JSON.stringify({ error: "Internal server error" }), {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
     }
 
-    // For all other requests (GET, static assets, etc.), serve from Cloudflare Workers Assets
+    // All other requests (GET /, static assets, SPA routing) → serve static files
     return env.ASSETS.fetch(request);
-  }
+  },
 };
